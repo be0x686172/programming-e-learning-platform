@@ -1,15 +1,13 @@
 import { Outlet } from "react-router";
+import './style.scss';
 
 const AuthLayout = () => {
 	return (
-		<>
-			<header className="header-auth-layout">
-				<h1>Programming E-Learning Platform</h1>
-			</header>
+		<div className="container-auth-layout">
 			<main>
 				<Outlet />
 			</main>
-		</>
+		</div>
 	);
 };
 

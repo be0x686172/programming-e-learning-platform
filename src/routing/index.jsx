@@ -10,7 +10,7 @@ const Routing = () => {
 		<BrowserRouter>
 			<Routes>
 				<Route path="/auth" element={<AuthLayout />} >
-					<Route element={<AuthPage />}>
+					<Route path="" element={<AuthPage />}>
 						<Route path="signin" element={<SignIn />} />
 						<Route path="signup" element={<SignUp />} />
 					</Route>

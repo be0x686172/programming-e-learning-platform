@@ -1,0 +1,19 @@
+.auth-page {
+  h2 {
+    font-weight: 550;
+    color: #9C9E9F;
+    br { line-height: 40px; }
+    &::first-line { color: #16181A; }
+  }
+
+  form {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .text-input-ui {
+      display: flex;
+      input { flex: 1; }
+    }
+  }
+}

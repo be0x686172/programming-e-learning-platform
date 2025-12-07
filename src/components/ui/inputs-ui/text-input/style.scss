@@ -1,0 +1,13 @@
+.text-input-ui {
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 7px;
+
+  input {
+    border: none;
+    border-radius: 7px;
+    outline: none;
+    padding: 4px 10px;
+    &:focus { border: 2px solid rgba($color: #16181A, $alpha: 0.8); }
+  }
+}

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Outlet } from "react-router";
-import TextInput from "../../components/ui/inputs/text-input";
-import { AtSign } from 'lucide-react';
+import TextInputUI from "../../components/ui/inputs-ui/text-input";
+import SubmitButtonUI from "../../components/ui/buttons-ui/submit-button";
+import './style.scss';
 
 const AuthPage = () => {
 
@@ -11,7 +12,8 @@ const AuthPage = () => {
 		<div className="auth-page">
 			<h2>Welcome to <br /> Programming E-Learning Platform.</h2>
 			<form>
-				<TextInput text={"Entrer votre adresse e-mail"} type={"email"} icon={AtSign} />
+				<TextInputUI text={"Enter your e-mail address"} type={"email"} />
+				<SubmitButtonUI text="Continue" />
 			</form>
 			{outletActive ? <Outlet /> : ''}
 		</div>
