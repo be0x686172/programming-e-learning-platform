@@ -2,7 +2,7 @@ import TextInputUI from "../../components/ui/inputs-ui/text-input";
 import SubmitButtonUI from "../../components/ui/buttons-ui/submit-button";
 import './style.scss';
 import { NavLink } from "react-router";
-import { checkExistEmail } from "../../services/supabase/auth-supabase";
+import { checkEmailExists } from "../../services/supabase/auth-supabase";
 
 const AuthPage = () => {
 
@@ -10,7 +10,7 @@ const AuthPage = () => {
 		let response;
 
 		event.preventDefault();
-		response = await checkExistEmail("admin1@gmail.com");
+		response = await checkEmailExists("admin@gmail.com");
 		console.log(response);
 	}
 

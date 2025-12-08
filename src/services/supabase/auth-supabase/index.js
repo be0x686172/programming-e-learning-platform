@@ -1,11 +1,10 @@
 import { supabase } from "../";
 
-const checkExistEmail = async (email) => {
+const checkEmailExists = async (email) => {
 	let response;
 
-	response = await supabase.auth.signInWithOtp({ email: email });
+	response = await supabase.functions.invoke('check-email-exists');
 	return (response);
-
 }
 
-export { checkExistEmail };
+export { checkEmailExists };
