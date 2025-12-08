@@ -2,7 +2,6 @@ import TextInputUI from "../../components/ui/inputs-ui/text-input";
 import SubmitButtonUI from "../../components/ui/buttons-ui/submit-button";
 import './style.scss';
 import { NavLink } from "react-router";
-import { queryProfileByEmail } from "../../services/supabase/tables/public/profiles-public";
 
 const AuthPage = () => {
 
