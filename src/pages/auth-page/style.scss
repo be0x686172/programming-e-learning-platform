@@ -1,4 +1,8 @@
 .auth-page {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
   h2 {
     font-weight: 550;
     color: #9C9E9F;
@@ -7,7 +11,6 @@
   }
 
   form {
-    margin-top: 25px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -15,5 +18,21 @@
       display: flex;
       input { flex: 1; }
     }
+  }
+
+  hr {
+    border: 0;
+    height: 0;
+    border-top: 0.2px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0.2px solid rgba($color: #9C9E9F, $alpha: 0.05);
+  }
+
+  .terms-use-and-private-policy-message {
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 350;
+    color: #9C9E9F;
+    br { line-height: 30px; }
+    span { color: black; }
   }
 }
