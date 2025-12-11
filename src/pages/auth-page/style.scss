@@ -13,11 +13,13 @@
   form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     .text-input-ui {
       display: flex;
       input { flex: 1; }
     }
+
+    button { margin-top: 10px; }
   }
 
   hr {
