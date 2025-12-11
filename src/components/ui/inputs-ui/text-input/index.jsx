@@ -1,9 +1,9 @@
 import './style.scss';
 
-const TextInputUI = ({text, type}) => {
+const TextInputUI = ({text, type, onChange}) => {
 	return (
 		<div className="text-input-ui">
-			<input type={type} placeholder={text} />
+			<input type={type} placeholder={text} onChange={(event) => onChange(event.target.value)} />
 		</div>
 	);
 };

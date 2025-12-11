@@ -4,7 +4,7 @@ const checkEmailExists = async (email) => {
 	let response;
 
 	response = await supabase.functions.invoke('check-email-exists', {
-		body: { email: "admin@gmail.com" }
+		body: { email: email }
 	});
 	return (response.data);
 }
