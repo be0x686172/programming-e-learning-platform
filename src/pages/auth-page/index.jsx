@@ -1,7 +1,7 @@
 import TextInputUI from "../../components/ui/inputs-ui/text-input";
 import SubmitButtonUI from "../../components/ui/buttons-ui/submit-button";
 import './style.scss';
-import { NavLink, Outlet, useNavigate } from "react-router";
+import { NavLink, Outlet, useNavigate, useLocation } from "react-router";
 import { checkEmailExists } from "../../services/supabase/auth-supabase";
 import { useEffect, useState } from "react";
 
@@ -10,11 +10,20 @@ const AuthPage = () => {
 	const navigate = useNavigate();
 	const [formData, setFormData] = useState({});
 	const [outlet, setOutlet] = useState(false);
+	const location = useLocation();
+
+	useEffect(() => {
+		let activeOutlet;
+
+		activeOutlet = location.pathname.split("/").pop();
+		console.log(activeOutlet);
+	}, [location]);
 
 	const handleForm = async (event) => {
 		let response;
 
 		event.preventDefault();
+		console.log(formData);
 		response = await checkEmailExists(formData.email);
 		if (response) {
 			setOutlet(true);
