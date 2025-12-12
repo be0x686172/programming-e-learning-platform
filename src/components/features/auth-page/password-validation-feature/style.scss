@@ -3,4 +3,22 @@
   border-radius: 5px;
   background-color: #fff;
   border: 1px solid rgba($color: #9C9E9F, $alpha: 0.35);
+  display: flex;
+  flex-direction: column;
+  padding: 11px 12px;
+  gap: 15px;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    p {
+      font-size: 0.8rem;
+      font-weight: 450;
+    }
+    &.not-valid {
+      svg { stroke: #9C9E9F; }
+      p { color: #9C9E9F; }
+    }
+  }
 }
