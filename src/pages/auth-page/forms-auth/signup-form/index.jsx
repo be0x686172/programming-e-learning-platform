@@ -6,7 +6,7 @@ import { ChevronLeft } from "lucide-react";
 
 const SignUp = () => {
 
-	const email = useOutletContext();
+	const {formData, setFormData} = useOutletContext();
 
 	return (
 		<>
@@ -14,9 +14,9 @@ const SignUp = () => {
 				<ChevronLeft size={19} />
 				<a href="/auth">back</a>
 			</div>
-			<TextInputUI value={email} disabled={true} />
-			<TextInputUI text={"Enter your password"} type={"password"} required={true} onChange={() => {}} />
-			<TextInputUI text={"Confirm your password"} type={"password"} required={true} onChange={() => {}} />
+			<TextInputUI value={formData.email} disabled={true} />
+			<TextInputUI text={"Enter your password"} name={"password"} type={"password"} required={true} onChange={setFormData} />
+			<TextInputUI text={"Confirm your password"} name={"confirmPassword"} type={"password"} required={true} onChange={setFormData} />
 			<SubmitButtonUI text={"Sign Up"} />
 		</>
 	);

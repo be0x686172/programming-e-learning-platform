@@ -8,14 +8,14 @@ import { useEffect, useState } from "react";
 const AuthPage = () => {
 
 	const navigate = useNavigate();
-	const [email, setEmail] = useState(null);
+	const [formData, setFormData] = useState({});
 	const [outlet, setOutlet] = useState(false);
 
 	const handleForm = async (event) => {
 		let response;
 
 		event.preventDefault();
-		response = await checkEmailExists(email);
+		response = await checkEmailExists(formData.email);
 		if (response) {
 			setOutlet(true);
 			navigate('signin');
@@ -30,9 +30,9 @@ const AuthPage = () => {
 		<div className="auth-page">
 			<h2>Welcome to <br /> Programming E-Learning Platform.</h2>
 			<form onSubmit={(event) => handleForm(event)}>
-				{!outlet ? <TextInputUI text={"Enter your e-mail address"} type={"email"} onChange={setEmail} required={true} /> : ''}
+				{!outlet ? <TextInputUI text={"Enter your e-mail address"} name={"email"} type={"email"} onChange={setFormData} required={true} /> : ''}
 				{!outlet ? <SubmitButtonUI text="Continue" /> : ''}
-				{outlet ? <Outlet context={email} /> : ''}
+				{outlet ? <Outlet context={{formData, setFormData}} /> : ''}
 			</form>
 			<hr />
 			<p className="terms-use-and-private-policy-message">By registaring, you consent to our <span><NavLink>Terms <br /> of Use</NavLink></span> and <span><NavLink>Privacy Policy</NavLink></span>.</p>
