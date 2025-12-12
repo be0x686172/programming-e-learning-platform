@@ -1,4 +1,4 @@
-const signinForm = async (event, formData) => {
+const signinForm = async (event, formData, navigate) => {
 	event.preventDefault();
 	console.log(formData);
 	console.log('connexion');

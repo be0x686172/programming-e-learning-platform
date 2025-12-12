@@ -22,8 +22,8 @@ const AuthPage = () => {
 			<h2>Welcome to <br /> Programming E-Learning Platform.</h2>
 			<form onSubmit={
 				activeOutlet == "auth" ? (event) => authForm(event, formData, setOutlet, navigate) :
-				activeOutlet == "signup" ? (event) => signupForm(event, formData) :
-				activeOutlet == "signin" ? (event) => signinForm(event, formData) :
+				activeOutlet == "signup" ? (event) => signupForm(event, formData, navigate) :
+				activeOutlet == "signin" ? (event) => signinForm(event, formData, navigate) :
 				() => {}
 			}>
 				{!outlet ? <TextInputUI text={"Enter your e-mail address"} name={"email"} type={"email"} onChange={setFormData} required={true} /> : ''}
