@@ -14,6 +14,7 @@ const AuthPage = () => {
 	const [outlet, setOutlet] = useState(false);
 	const location = useLocation();
 	const [activeOutlet, setActiveOutlet] = useState("auth");
+	const [errorMessage, setErrorMessage] = useState(null);
 
 	useEffect(() => { setActiveOutlet(location.pathname.split("/").pop()); }, [location]);
 
@@ -21,14 +22,15 @@ const AuthPage = () => {
 		<div className="auth-page">
 			<h2>Welcome to <br /> Programming E-Learning Platform.</h2>
 			<form onSubmit={
-				activeOutlet == "auth" ? (event) => authForm(event, formData, setOutlet, navigate) :
-				activeOutlet == "signup" ? (event) => signupForm(event, formData, navigate) :
-				activeOutlet == "signin" ? (event) => signinForm(event, formData, navigate) :
+				activeOutlet == "auth" ? (event) => authForm(event, formData, setOutlet, navigate, setErrorMessage) :
+				activeOutlet == "signup" ? (event) => signupForm(event, formData, navigate, setErrorMessage) :
+				activeOutlet == "signin" ? (event) => signinForm(event, formData, navigate, setErrorMessage) :
 				() => {}
 			}>
 				{!outlet ? <TextInputUI text={"Enter your e-mail address"} name={"email"} type={"email"} onChange={setFormData} required={true} /> : ''}
 				{!outlet ? <SubmitButtonUI text="Continue" /> : ''}
 				{outlet ? <Outlet context={{formData, setFormData}} /> : ''}
+				{errorMessage ? <p className="errorMessage">{errorMessage}</p> : ''}
 			</form>
 			<hr />
 			<p className="terms-use-and-private-policy-message">By registaring, you consent to our <span><NavLink>Terms <br /> of Use</NavLink></span> and <span><NavLink>Privacy Policy</NavLink></span>.</p>

@@ -1,4 +1,4 @@
-const signupForm = async (event, formData, navigate) => {
+const signupForm = async (event, formData, navigate, setErrorMessage) => {
 	let response;
 
 	event.preventDefault();
