@@ -3,7 +3,7 @@ import SubmitButtonUI from "../../components/ui/buttons-ui/submit-button";
 import './style.scss';
 import { NavLink, Outlet, useNavigate } from "react-router";
 import { checkEmailExists } from "../../services/supabase/auth-supabase";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const AuthPage = () => {
 
