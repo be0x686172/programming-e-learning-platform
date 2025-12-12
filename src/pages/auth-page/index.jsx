@@ -32,7 +32,7 @@ const AuthPage = () => {
 			<form onSubmit={(event) => handleForm(event)}>
 				{!outlet ? <TextInputUI text={"Enter your e-mail address"} type={"email"} onChange={setEmail} required={true} /> : ''}
 				{!outlet ? <SubmitButtonUI text="Continue" /> : ''}
-				{outlet ? <Outlet /> : ''}
+				{outlet ? <Outlet context={email} /> : ''}
 			</form>
 			<hr />
 			<p className="terms-use-and-private-policy-message">By registaring, you consent to our <span><NavLink>Terms <br /> of Use</NavLink></span> and <span><NavLink>Privacy Policy</NavLink></span>.</p>

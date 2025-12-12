@@ -1,9 +1,16 @@
 import './style.scss';
 
-const TextInputUI = ({text, type, onChange, required}) => {
+const TextInputUI = ({text, type, onChange, required, value, disabled}) => {
 	return (
 		<div className="text-input-ui">
-			<input type={type} placeholder={text} onChange={(event) => onChange(event.target.value)} required={required} />
+			<input 
+				type={type} 
+				placeholder={text}
+				onChange={(event) => onChange(event.target.value)}
+				required={required}
+				disabled={disabled}
+				value={value}
+			/>
 		</div>
 	);
 };

@@ -9,6 +9,9 @@
     border-radius: 6px;
     outline: none;
     padding: 5px 10px;
-    &:focus { border: 2px solid rgba($color: #16181A, $alpha: 0.8); }
+    color: #16181A;
+    &:focus { border: 2px solid rgba($color: #16181A, $alpha: 1); }
+    &:disabled { color: #9C9E9F; }
+    &::placeholder { color: rgba($color: #9C9E9F, $alpha: 0.7); }
   }
 }

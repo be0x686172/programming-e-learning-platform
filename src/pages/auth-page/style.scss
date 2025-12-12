@@ -34,15 +34,17 @@
     font-weight: 350;
     color: #9C9E9F;
     br { line-height: 30px; }
-    span { color: black; }
+    span { color: #16181A; }
   }
 }
 
 // Animations
+.auth-page {
+  transform: translateX(-40px);
+  animation: slide-in 0.6s forwards, fade-in 1.4s;
+}
 
-.auth-page { animation: fade-in 1.4s; }
-
-.auth-page > h2, form .text-input-ui, form button, .terms-use-and-private-policy-message {
+.text-input-ui, button {
   transform: translateX(-40px);
   animation: slide-in 0.6s forwards;
 }
