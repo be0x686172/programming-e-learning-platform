@@ -1,8 +1,7 @@
 .password-validation-feature {
   background-color: red;
   border-radius: 5px;
-  background-color: #fff;
-  border: 1px solid rgba($color: #9C9E9F, $alpha: 0.35);
+  background-color: rgba($color: #9C9E9F, $alpha: 0.15);
   display: flex;
   flex-direction: column;
   padding: 11px 12px;
@@ -17,8 +16,8 @@
       font-weight: 450;
     }
     &.not-valid {
-      svg { stroke: #9C9E9F; }
-      p { color: #9C9E9F; }
+      svg { stroke: #E57373; }
+      p { color: #E57373; }
     }
   }
 }
