@@ -2,8 +2,10 @@ import TextInputUI from "../../components/ui/inputs-ui/text-input";
 import SubmitButtonUI from "../../components/ui/buttons-ui/submit-button";
 import './style.scss';
 import { NavLink, Outlet, useNavigate, useLocation } from "react-router";
-import { checkEmailExists } from "../../services/supabase/auth-supabase";
 import { useEffect, useState } from "react";
+import { authForm } from "../../services/forms/auth-form/auth-form";
+import { signupForm } from "../../services/forms/auth-form/signup-form";
+import { signinForm } from "../../services/forms/auth-form/signin-form";
 
 const AuthPage = () => {
 
@@ -11,34 +13,19 @@ const AuthPage = () => {
 	const [formData, setFormData] = useState({});
 	const [outlet, setOutlet] = useState(false);
 	const location = useLocation();
+	const [activeOutlet, setActiveOutlet] = useState("auth");
 
-	useEffect(() => {
-		let activeOutlet;
-
-		activeOutlet = location.pathname.split("/").pop();
-		console.log(activeOutlet);
-	}, [location]);
-
-	const handleForm = async (event) => {
-		let response;
-
-		event.preventDefault();
-		console.log(formData);
-		response = await checkEmailExists(formData.email);
-		if (response) {
-			setOutlet(true);
-			navigate('signin');
-		}
-		else {
-			setOutlet(true);
-			navigate('signup');
-		}
-	}
+	useEffect(() => { setActiveOutlet(location.pathname.split("/").pop()); }, [location]);
 
 	return (
 		<div className="auth-page">
 			<h2>Welcome to <br /> Programming E-Learning Platform.</h2>
-			<form onSubmit={(event) => handleForm(event)}>
+			<form onSubmit={
+				activeOutlet == "auth" ? (event) => authForm(event, formData, setOutlet, navigate) :
+				activeOutlet == "signup" ? (event) => signupForm(event, formData) :
+				activeOutlet == "signin" ? (event) => signinForm(event, formData) :
+				() => {}
+			}>
 				{!outlet ? <TextInputUI text={"Enter your e-mail address"} name={"email"} type={"email"} onChange={setFormData} required={true} /> : ''}
 				{!outlet ? <SubmitButtonUI text="Continue" /> : ''}
 				{outlet ? <Outlet context={{formData, setFormData}} /> : ''}
