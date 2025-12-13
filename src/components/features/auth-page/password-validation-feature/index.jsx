@@ -3,19 +3,27 @@ import { Check } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { checkPasswordRegex } from '../../../../utils/regex/password-regex';
 
-const PasswordValidationFeature = ({ password }) => {
+const PasswordValidationFeature = ({ password, confirmPassword }) => {
 
 	const [passwordChecks, setPasswordChecks] = useState({
 		lowercase: false,
 		uppercase: false,
 		number: false,
 		specialCharacter: false,
-		minLength: false
+		minLength: false,
+		confirmedPassword: false
 	});
 
 	useEffect(() => {
-		setPasswordChecks(checkPasswordRegex(password));
-	}, [password]);
+		let checks;
+
+		checks = checkPasswordRegex(password);
+		setPasswordChecks({
+			...checks,
+			confirmedPassword: confirmPassword === password
+		});
+	}, [password, confirmPassword]);
+
 	
 	return (
 		<div className="password-validation-feature">
@@ -38,6 +46,10 @@ const PasswordValidationFeature = ({ password }) => {
 			<div className={`${!passwordChecks.minLength ? 'not-valid' : ''}`}>
 				<Check size={16} />
 				<p>Minimum 8 characters</p>
+			</div>
+			<div className={`${!passwordChecks.confirmedPassword ? 'not-valid' : ''}`}>
+				<Check size={16} />
+				<p>The password confirmed must be the same as password</p>
 			</div>
 		</div>
 	);
