@@ -13,11 +13,14 @@
     gap: 10px;
     p {
       font-size: 0.8rem;
-      font-weight: 450;
+      font-weight: 470;
     }
     &.not-valid {
       svg { stroke: #E57373; }
-      p { color: #E57373; }
+      p { 
+        color: #E57373; 
+        font-weight: 250;
+      }
     }
   }
 }

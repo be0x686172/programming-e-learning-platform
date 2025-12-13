@@ -1,11 +1,11 @@
 import './style.scss';
 import { Check } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const PasswordValidationFeature = () => {
+const PasswordValidationFeature = ({password, confirmPassword}) => {
 
 	const [validLowercase, setValidLowercase] = useState(false);
-	const [validUppercase, setValidUppercase] = useState(false);
+	const [validUppercase, setValidUppercase] = useState(true);
 	const [validNumber, setValidNumber] = useState(false);
 	const [validSpecialCharacter, setValidSpecialCharacter] = useState(false);
 	const [validHeightCharacters, setValidHeightCharacters] = useState(false);

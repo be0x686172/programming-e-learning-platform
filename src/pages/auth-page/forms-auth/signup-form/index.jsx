@@ -17,7 +17,7 @@ const SignUp = () => {
 			<TextInputUI value={formData.email} disabled={true} />
 			<TextInputUI text={"Enter your password"} name={"password"} type={"password"} required={true} onChange={setFormData} />
 			<TextInputUI text={"Confirm your password"} name={"confirmPassword"} type={"password"} required={true} onChange={setFormData} />
-			<PasswordValidationFeature />
+			<PasswordValidationFeature password={formData.password} confirmPassword={formData.confirmPassword} />
 			<SubmitButtonUI text={"Sign Up"} />
 		</>
 	);
