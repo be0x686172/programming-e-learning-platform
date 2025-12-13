@@ -6,7 +6,7 @@ const TextInputUI = ({text, type, name, onChange, required, value, disabled, onF
 			<input 
 				type={type} 
 				placeholder={text}
-				onChange={(event) => onChange(prev => ({...prev, [name]: event.target.value}))}
+				onChange={onChange ? (event) => onChange(prev => ({...prev, [name]: event.target.value})) : () => {}}
 				required={required}
 				disabled={disabled}
 				value={value}
