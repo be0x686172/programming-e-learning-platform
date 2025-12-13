@@ -3,7 +3,7 @@ import { Check } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { checkPasswordRegex } from '../../../../utils/regex/password-regex';
 
-const PasswordValidationFeature = ({ password, confirmPassword }) => {
+const PasswordValidationFeature = ({ password, confirmPassword = null }) => {
 
 	const [passwordChecks, setPasswordChecks] = useState({
 		lowercase: false,
@@ -22,6 +22,7 @@ const PasswordValidationFeature = ({ password, confirmPassword }) => {
 			...checks,
 			confirmedPassword: confirmPassword === password
 		});
+		if (confirmPassword == "") setPasswordChecks({...checks, confirmedPassword: false});
 	}, [password, confirmPassword]);
 
 	
