@@ -1,11 +1,11 @@
 import { checkEmailExists } from "../../supabase/auth-supabase";
-import { checkValidEmailInput } from "../../../utils/inputs/check-email-input";
+import { checkEmailRegex } from "../../../utils/regex/email-regex";
 
 const authForm = async (event, formData, setOutlet, navigate, setErrorMessage) => {
 	let response;
 
 	event.preventDefault();
-	if (!checkValidEmailInput(formData.email)) {
+	if (!checkEmailRegex(formData.email)) {
 		setErrorMessage("Your e-mail is invalid !");
 		return ;
 	}
